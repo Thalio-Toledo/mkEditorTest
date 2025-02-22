@@ -40,19 +40,30 @@ export class AppComponent{
     }
   }
 
-  onInput(event: any) {
-    const text = event.target.innerText;
-    if (text.endsWith('/')) {
-      this.showMenu = true;
-    } else {
-      this.showMenu = false;
-    }
-  }
+  // onInput(event: any) {
+  //   const text = event.target.innerText;
+  //   if (text.endsWith('/')) {
+  //     this.showMenu = true;
+  //   } else {
+  //     this.showMenu = false;
+  //   }
+  // }
 
   applyMarkdown(markdown: string) {
     this.showMenu = false;
     const editor = this.editorRef.nativeElement;
     editor.innerText = editor.innerText.replace('/', markdown);
     editor.focus();
+  }
+
+  editorContent = '';
+
+  onInput(event: Event) {
+    this.editorContent = (event.target as HTMLElement).innerHTML;
+  }
+
+  teste(text : string, tag:string = 'p'){
+    text = 'Digite um texto'
+    return `<${tag}>${text}</${tag}>`
   }
 }

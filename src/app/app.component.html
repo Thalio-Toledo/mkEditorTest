@@ -7,14 +7,21 @@
         (click)="applyMarkdown(option.markdown)">
       {{ option.label }}
     </li>
-  </ul>
+  </ul>> thalio
+  
+  ## thalio
 </div>
 
 <h2>Editor de Markdown</h2>
 
 <!-- Editor de Markdown -->
-<textarea [(ngModel)]="markdownText" placeholder="Digite Markdown aqui..."></textarea>
+<textarea  [(ngModel)]="markdownText" placeholder="Digite Markdown aqui..."></textarea>
 
 <!-- Visualizador de Markdown -->
 <h3>Pré-visualização:</h3>
 <app-markdown-viwer [content]="markdownText"></app-markdown-viwer>
+
+<div contenteditable="true" 
+[(ngModel)]="editorContent"
+[innerHTML]="teste(editorContent, 'i')" 
+(input)="onInput($event)"></div>
