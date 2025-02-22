@@ -1,5 +1,10 @@
 <div class="editor-container">
-  <div #editor contenteditable="true" class="editor" (input)="onInput($event)"></div>
+  <div #editor 
+  [innerHTML]="texto" 
+  contenteditable="true" 
+  class="editor" 
+  aria-label="Texto editável" 
+  (input)="onInput($event)"></div>
 
   <ul *ngIf="showMenu" class="menu">
     <li *ngFor="let option of menuOptions; let i = index"
@@ -7,21 +12,5 @@
         (click)="applyMarkdown(option.markdown)">
       {{ option.label }}
     </li>
-  </ul>> thalio
-  
-  ## thalio
+  </ul>
 </div>
-
-<h2>Editor de Markdown</h2>
-
-<!-- Editor de Markdown -->
-<textarea  [(ngModel)]="markdownText" placeholder="Digite Markdown aqui..."></textarea>
-
-<!-- Visualizador de Markdown -->
-<h3>Pré-visualização:</h3>
-<app-markdown-viwer [content]="markdownText"></app-markdown-viwer>
-
-<div contenteditable="true" 
-[(ngModel)]="editorContent"
-[innerHTML]="teste(editorContent, 'i')" 
-(input)="onInput($event)"></div>
